@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         body {
             background-color: var(--tg-theme-bg-color);
             color: var(--tg-theme-text-color);
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 10px;
+            padding: 0;
         }
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 10px;
         }
         th, td {
-            padding: 10px;
+            padding: 8px;
             border: 1px solid var(--tg-theme-hint-color);
             text-align: right;
         }
         th {
             background-color: var(--tg-theme-button-color);
             color: var(--tg-theme-button-text-color);
+            font-weight: normal;
         }
         input[type="number"] {
             width: 100%;
@@ -31,6 +34,7 @@
             background-color: var(--tg-theme-bg-color);
             color: var(--tg-theme-text-color);
             border: 1px solid var(--tg-theme-hint-color);
+            text-align: right;
         }
         tfoot td {
             font-weight: bold;
@@ -41,9 +45,9 @@
     <table id="data-table">
         <thead>
             <tr>
-                <th>Pipes</th>
-                <th>Lengths</th>
-                <th>Weights</th>
+                <th>шт</th>
+                <th>м</th>
+                <th>тон</th>
             </tr>
         </thead>
         <tbody id="table-body">
@@ -101,4 +105,5 @@
     </script>
 </body>
 </html>
+
 
