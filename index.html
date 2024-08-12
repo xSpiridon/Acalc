@@ -3,36 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Bot Interface</title>
+    <title>Bot Data Processing</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Send a Message to Telegram Bot</h1>
-    <form id="bot-form">
-        <input type="text" id="message" placeholder="Enter your message" required>
-        <button type="submit">Send</button>
-    </form>
-
-    <script>
-        document.getElementById('bot-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const message = document.getElementById('message').value;
-
-            // Отправляем сообщение боту через Telegram API
-            fetch('https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    chat_id: '<CHAT_ID>',
-                    text: message
-                })
-            }).then(response => response.json()).then(data => {
-                alert('Message sent successfully');
-            }).catch(error => {
-                console.error('Error:', error);
-            });
-        });
-    </script>
+    <div class="container">
+        <h1>Data Processing</h1>
+        <div id="sheets-container"></div>
+        <div class="total-container">
+            <h2>Total:</h2>
+            <p>Pipes: <span id="total-pipes"></span></p>
+            <p>Lengths: <span id="total-lengths"></span> meters</p>
+            <p>Weights: <span id="total-weights"></span> tons</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
