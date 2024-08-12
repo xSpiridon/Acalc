@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bot Data Processing</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <div id="output"></div> <!-- Элемент для отображения данных -->
+
+    <script>
+        // Функция для получения параметра из URL
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(window.location.search);
+            return results === null ? null : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Чтение параметра 'data' из URL
+        const jsonData = getUrlParameter('data');
+
+        if (jsonData) {
+            try {
+                // Парсинг JSON строки в объект
+                const dataObject = JSON.parse(jsonData);
+
+                // Вывод данных в элемент с id 'output'
+                document.getElementById('output').textContent = JSON.stringify(dataObject, null, 2);
+            } catch (error) {
+                console.error('Error parsing JSON:', error);
+                document.getElementById('output').textContent = 'Invalid JSON data';
+            }
+        } else {
+            document.getElementById('output').textContent = 'No data found in URL';
+        }
+    </script>
+    
 </head>
 <body>
     <div class="container">
