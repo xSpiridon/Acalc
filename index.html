@@ -41,28 +41,91 @@
             font-weight: bold;
             text-align: center  !important;
         }
-        #controls {
-            text-align: center;
-            margin-bottom: 10px;
+        .item-button {
+          position: relative;
+          width: 38px;
+          height: 38px;
+          border: none;
+          border-radius: 50%;
+          background-color: #e64d44;
+          color: #fff;
+          cursor: pointer;
+          transition: transform var(--animation), visibility var(--animation);
+          visibility: hidden;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+        }     
+        /* Кнопка увеличения */
+        .increase-button {
+          position: absolute !important;
+          top: 0;
+          right: 0;
+          width: 80px;
+          background-color: #4caf50;
+          transition: width var(--animation);
         }
-        #controls button {
-            padding: 5px 10px;
-            margin: 5px;
-            background-color: var(--tg-theme-button-color);
-            color: var(--tg-theme-button-text-color);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        
+        /* Кнопка уменьшения по умолчанию */
+        .decrease-button {
+          background-color: #e64d44;
+          pointer-events: none;
+          transform: scale3d(0.9, 0.9, 1);
         }
-        #controls button:hover {
-            background-color: var(--tg-theme-hint-color);
+        /* Стили при выборе элемента */
+        .selected .increase-button {
+          width: 38px;
+          visibility: visible;
         }
+        .selected .decrease-button {
+          pointer-events: auto;
+          transform: scale3d(1, 1, 1);
+          visibility: visible;
+        }
+        /* Стили для крестика и плюса внутри кнопок */
+        .increase-button:before,
+        .increase-button:after,
+        .decrease-button:before {
+          content: '';
+          position: absolute;
+          width: 14px;
+          height: 3px;
+          background-color: #fff;
+          border-radius: 1px;
+          transition: background-color var(--animation);
+        }
+        /* Плюс для кнопки увеличения */
+        .increase-button:before,
+        .increase-button:after {
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+        .increase-button:after {
+          width: 3px;
+          height: 14px;
+        }
+        /* Линия для кнопки уменьшения */
+        .decrease-button:before {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        .selected .increase-button:before,
+        .selected .increase-button:after {
+          background-color: #fff;
+        }
+        .selected .increase-button span {
+          transform: scale3d(0.4, 0, 1);
+          transition: transform var(--animation);
+        }
+
     </style>
 </head>
 <body>
-    <div id="controls">
-        <button id="add-row">+</button>
-        <button id="remove-row">-</button>
+    <div class="button-container">
+        <button class="cafe-item-decr-button"></button>
+        <button class="cafe-item-incr-button"><span class="button-item-label">+</span></button>
     </div>
     <table id="data-table">
         <thead>
