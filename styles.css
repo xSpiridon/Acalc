@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+#sheets-container {
+    margin-bottom: 20px;
+}
+
+.sheet {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.total-container {
+    border-top: 2px solid #333;
+    padding-top: 20px;
+}
